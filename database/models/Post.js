@@ -1,10 +1,13 @@
 const mongoose = require('mongoose')
 
 const PostSchema = new mongoose.Schema({
-  email: String,
+  email: {
+    String,
+    unique: true
+  },
+
   createdAt: {
     type: Date,
-    unique: true,
     default: new Date()
   }
 })
