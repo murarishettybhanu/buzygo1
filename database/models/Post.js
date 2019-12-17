@@ -2,8 +2,9 @@ const mongoose = require('mongoose')
 
 const PostSchema = new mongoose.Schema({
   email: {
-    String,
-    unique: true
+    type: String,
+    unique: true,
+    required: [true, 'Please provide your email.']
   },
 
   createdAt: {
