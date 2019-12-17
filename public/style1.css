@@ -1,0 +1,167 @@
+#logo {
+    width: 77.46px;
+    height: 83.67px;
+}
+
+nav {
+    overflow: hidden;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+.ft-txt {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 40px;
+
+    /* identical to box height */
+}
+
+#ft {
+    background: #FFF7D9;
+}
+
+input[type="text"] {
+    display: block;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 0px;
+}
+
+.btn {
+    margin: 0 auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 752px;
+    width: 100%;
+    background-color: #212529;
+    opacity: .5
+}
+
+.nav_li {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+}
+
+#hd_img {
+    width: 100%;
+    height: 752px;
+    background-image: url('images/Group 12.png');
+    min-height: 380px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.h_text {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 44px;
+    text-align: center;
+
+    color: #ffffff;
+    z-index: 1;
+}
+
+#inp {
+    width: 35%;
+    background: #ffffff;
+    height: 50px;
+}
+
+#inpt {
+    width: 70%;
+    padding: 10px;
+    height: 50px;
+    border: #ffffff
+}
+
+#btun {
+    height: 40px;
+    background: #9D3DBE;
+    width: 28%;
+    padding: 2.5px;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 12px;
+}
+
+p,h2,a {
+    font-family: Proxima Nova;
+}
+
+.content_head {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 49px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.content_body {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#bdmbcon{
+    display: none;
+}
+
+@media (max-width: 576px) {
+    #inp {
+        width: 80%;
+        background: #ffffff;
+        height: 50px;
+    }
+
+    #inpt {
+        width: 70%;
+        padding: 10px;
+        height: 50px;
+        border: #ffffff
+    }
+
+    #btun {
+        height: 40px;
+        background: #9D3DBE;
+        width: 28%;
+        padding: 2.5px;
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 12px;
+    }
+    #bd_con{
+        display: none;
+    }
+    #bdmbcon{
+        display: block;
+    }
+}
