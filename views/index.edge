@@ -19,10 +19,32 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="fonts/fonts.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
-<body>
+<body onload="myFunction()">
+    @if(messages.success)
+    <script>
+        function myFunction() {
+            swal({
+                title: "{{messages.success}}",
+                timer: 6000,
+                showConfirmButton: false
+            });
+        };
+    </script>
+    @endif
+    @if(messages.fail)
+    <script>
+        function myFunction() {
+            swal({
+                title: "{{messages.fail}}",
+                timer: 6000,
+                showConfirmButton: false
+            });
+        };
+    </script>
+    @endif
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#"><img src="images/Group 8.png" alt="" id="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -55,9 +77,11 @@
                 <img src="images/12.png" alt="">
             </div>
             <div class="col-md-6 p-5" style="background-color: #4169E1;">
-                <p class="content_head">Area based free advertising</p>
-                <p class="content_body"> Post offers, information and more so your people are aware of your business in
-                    your locality.</p>
+                <p class="content_head">Area based free advertising </p>
+                <p class="content_body">
+                    Post offers, information and more for free, so that people in your locality are aware of your
+                    business.
+                </p>
             </div>
         </div>
         <div class="row h-100">
@@ -66,25 +90,45 @@
             </div>
             <div class="col-md-6 p-5" style="background-color:#E16741;">
                 <p class="content_head">Forums to drive better traffic </p>
-                <p class="content_body">Engage in forums to understand and gain customers on to your business.</p>
+                <p class="content_body">Forums help users to discover, interact and discuss a variety of things and
+                    helps you in knowing them.</p>
             </div>
         </div>
         <div class="row h-100">
             <div class="col-md-6">
                 <img src="images/32.png" alt="">
             </div>
-            <div class="col-md-6 p-5" style="background-color: #39BE24;">
-                <p class="content_head">Tags</p>
-                <p class="content_body">Tags to help your customers drive better
-                    Use of right tags makes it easier for the users
-                    to discover identify and use your business making
-                    it more efficient way of reaching your target audience.
+            <div class="col-md-6 p-5" style="background-color: #FFAB00;">
+                <p class="content_head">Real time inventory </p>
+                <p class="content_body">Let customers see whats in your store to help save their
+                    time and effort.
                 </p>
             </div>
         </div>
         <div class="row h-100">
             <div class="col-md-6">
                 <img src="images/41.png" alt="">
+            </div>
+            <div class="col-md-6 p-5" style="background-color: #00897B;">
+                <p class="content_head">Self checkout </p>
+                <p class="content_body"> Help customers skip long queues by enabling scan and
+                    pay in your store and
+                </p>
+            </div>
+        </div>
+        <div class="row h-100">
+            <div class="col-md-6">
+                <img src="images/52.png" alt="">
+            </div>
+            <div class="col-md-6 p-5" style="background-color: #39BE24;">
+                <p class="content_head">Tags </p>
+                <p class="content_body">Use of relevant tags helps user in indentifying your business faster and easier.
+                </p>
+            </div>
+        </div>
+        <div class="row h-100">
+            <div class="col-md-6">
+                <img src="images/61.png" alt="">
             </div>
             <div class="col-md-6 p-5" style="background-color: #7E0EC4;">
                 <p class="content_head">Direct Texting </p>
@@ -128,6 +172,22 @@
                 <img src="images/42.png" alt="" width="90%">
             </div>
         </div>
+        <div class="row h-100">
+            <div class="col-md-8 my-auto">
+                <img src="images/51.png" alt="" width="90%">
+            </div>
+            <div class="col-md-4">
+                <img src="images/52.png" alt="">
+            </div>
+        </div>
+        <div class="row h-100">
+            <div class="col-md-4">
+                <img src="images/61.png" alt="">
+            </div>
+            <div class="col-md-8 my-auto">
+                <img src="images/62.png" alt="" width="90%">
+            </div>
+        </div>
         <br>
         <p class="ft-txt text-center">Welcome to new age social media platform for businesses </p>
     </div>
@@ -136,37 +196,15 @@
         <p class="ft-txt text-center">Sign up now to get additional benefits.</p>
         <br>
         <div>
-            <div id="inp" class="mx-auto form-inline">
-                <input type="text" class="form-control" id="inpt" name="email" placeholder="Enter Your Email Id">
-                <button class="btn" id="btun">Submit</button>
-            </div><br><br>
+            <form action="/posts/store" method="POST" encType="multipart/form-data">
+                <div id="inp" class="mx-auto form-inline">
+                    <input type="text" class="form-control" id="inpt" name="email" placeholder="Enter Your Email Id">
+                    <button class="btn" id="btun">Submit</button>
+                </div>
+            </form>
+            <br><br>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $("#btun").click(function (e) {
-                var p = document.getElementById("inpt").value;
-                var obj = {};
-                obj.email = p;
-                console.log(obj);
-                $.ajax({
-                    type: 'POST',
-                    data: JSON.stringify(obj),
-                    contentType: 'application/json',
-                    url: 'http://34.93.127.242:3001/posts/store',
-                    success: function (result, status) {
-                        console.log(status);
-                        if (status === 'success') {
-                            alert('successfully registered');
-                        }
-                        else{
-                            alert("Email already exist")
-                        }
-                    }
-                });
-            });
-        })
-    </script>
 </body>
 
 </html>

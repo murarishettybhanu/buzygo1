@@ -7,6 +7,8 @@ const fileUpload = require("express-fileupload");
 const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
 const connectFlash = require("connect-flash");
+const flash = require('express-flash');
+
 var cors = require('cors')
 
 const homePageController = require("./controllers/homePage");
@@ -35,6 +37,7 @@ app.use(
   })
 );
 
+app.use(flash());
 app.use(fileUpload());
 app.use(express.static("public"));
 app.use(expressEdge);
@@ -62,6 +65,6 @@ app.get("/subscribers", auth, subscribersController)
 app.post("/users/register", redirectIfAuthenticated, storeUserController);
 app.use((req, res) => res.render('not-found'));
 
-app.listen(3001, () => {
-  console.log("App listening on port 3000");
+app.listen(80, () => {
+  console.log("App listening on port 80");
 });

@@ -2,10 +2,11 @@ const Post = require('../database/models/Post')
 
 module.exports = (req, res) => {
   Post.create(req.body, (error, post) => {
-    if(error){
-      return res.status(400).json({ message: err.message });    
+    if (error) {
+      req.flash('fail','Please try again')
+      res.redirect('/');
     }
-    res.status(200)
-    res.json(post)
+    req.flash('success','Thanks for your response !')
+    res.redirect('/');
   });
 }
